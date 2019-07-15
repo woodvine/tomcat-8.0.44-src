@@ -1,5 +1,14 @@
 # tomcat-8.0.44-src
 Tomcat 8.0.44 Eclipse 编译后的工程，可以直接导入到 Eclipse 或者 IDEA 中。
+将项目导入 Eclipse 工作空间，然后 Run configurations 配置
+
+### 选择 Main
+org.apache.catalina.startup.Bootstrap
+### Arguments 参数配置
+    
+    -Dcatalina.home="F:\Study\TomcateStudy\catalina-home" -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+
+就可以启动 Tomcat 应用，随便修改源码、跟踪源码了。
 
 # 自己编译 Tomcat 的流程
 ##源码及环境准备
@@ -10,10 +19,11 @@ Tomcat 7 编译需要使用 jdk 6
 ##源码配置
 1.	由于tomcat的源码默认采用ant编译，所以需要本地安装ant 
 2.	由于需要导入到idea下，所以在源码的根目录需要创建pom.xml,具体如下：
-3.	创建 catalina-home，目前需要与tomcat源码的位置平级，如下：
+即项目的 pom.xml 文件。
+3.	创建 catalina-home，目前需要与tomcat源码的位置平级。
  
 4.	在命令行下，进入到 apache-tomcat-8.0.43-src 下（源码的根目录），运行ant命令
-编译之后会在根目录下生成output文件夹，之后将/output/build/ 下的temp、bin、conf、lib、webapps、logs 复制到catalina-home下，需要复制文件见下图：
+编译之后会在根目录下生成output文件夹，之后将/output/build/ 下的temp、bin、conf、lib、webapps、logs 复制到catalina-home下，
  
  
  
@@ -30,7 +40,7 @@ JRE，我选择的是1.7
  
 3.	 在浏览器中输入 localhost:8080  ，效果见下图：
  
- 
+详细过程参考 Tomcat8-源码编译及开发.docx 文档。
  
  
 
